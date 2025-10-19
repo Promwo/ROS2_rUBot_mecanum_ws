@@ -76,11 +76,13 @@ Then you proceed with:
     ````
     This starts a simple HTTP server on port 8000.  
 - When you open the web Dashboard in the same computer, from new terminal:
-    - in virtual environment (TheConstruct's ROS2 virtual environment), type `webpage_address` and later `rosbridge_address`
+    - in VPN virtual environment (TheConstruct's ROS2 virtual environment), type `webpage_address` and later `rosbridge_address`
     - in external Disc Ubuntu, type:
         ````shell
         firefox http://localhost:8000/
         ````
+        > In the connection field we have to write the address where our RosBridge is running: `ws://localhost:9090`
+        
 ## 2. Dashboard on different **PC Browser**
 
 - Open Chrome / Edge / Firefox.
