@@ -175,3 +175,4 @@ Then run:
 export DISPLAY=192.168.1.3:0.0
 rviz2
 ```
+## 3. Add WebSocket server
