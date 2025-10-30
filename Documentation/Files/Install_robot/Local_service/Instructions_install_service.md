@@ -95,6 +95,16 @@ The workspace is compiled only once (it won’t repeat unnecessarily)
 
 ## 3. Complete bringup with Rosbridge and webserver
 
+- Install the rosbridge server
+    ```bash
+    sudo apt update
+    sudo apt install ros-humble-rosbridge-server -y
+    ```
+- Copy and make executable the `start_robot.sh` file:
+    ```bash
+    cd /home/ubuntu/
+    chmod +x start_robot.sh
+    ```
 - Save the 3 service files to /etc/systemd/system/:
     ````bash
     sudo nano /etc/systemd/system/my_robot.service
