@@ -58,11 +58,10 @@ To work on the project (during lab sessions or for homework), each student has t
   source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
   source /home/user/ROS2_rUBot_mecanum_ws/install/setup.bash
   cd /home/user/ROS2_rUBot_mecanum_ws
-  export ROS_DOMAIN_ID=x # change x for your group number
+  export ROS_DOMAIN_ID=0 # change x for your group number
   export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
   export GAZEBO_MODEL_PATH=/home/user/ROS2_rUBot_mecanum_ws/src/my_robot_bringup/models:$GAZEBO_MODEL_PATH
-  export QT_QPA_PLATFORM=xcb # Best for RVIZ2
-  export ROS_LOCALHOST_ONLY=0 # To allow communication with other computers in the same network
+  
   git config --global user.email "xxx@alumnes.ub.edu"
   git config --global user.name "your_github_username"
   ````
