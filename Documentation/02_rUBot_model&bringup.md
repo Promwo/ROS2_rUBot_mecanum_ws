@@ -548,9 +548,8 @@ When you are using the virtual environment to simulate the robot behavior you ha
 
 #### **Real robot**
 
-When you are using the real robot, the bringup is done with:
+When you are using the real robot, the bringup is already done. You need only to view the topics with:
 ```shell
-ros2 launch my_robot_bringup my_robot_bringup_hw.launch.py
 ros2 launch my_robot_description display.launch.py use_sim_time:=false robot_model:=robot_arm/my_simple_robot.urdf
 ````
 > In real robot, we use by default `robot_arm/my_simple_robot.urdf`
