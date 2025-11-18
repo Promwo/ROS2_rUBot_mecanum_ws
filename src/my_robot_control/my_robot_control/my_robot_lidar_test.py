@@ -45,7 +45,7 @@ class LidarTest(Node):
         self.get_logger().info(f"Distance at index 200: {scan.ranges[200]:.2f} m")
         self.get_logger().info(f"Distance at index 400: {scan.ranges[400]:.2f} m")
         self.get_logger().info(f"Distance at index 600: {scan.ranges[600]:.2f} m")
-        self.get_logger().info(f"Distance at index 800: {scan.ranges[800]:.2f} m")
+        self.get_logger().info(f"Distance at index 700: {scan.ranges[700]:.2f} m")
 
         custom_range = []
         for i, distance in enumerate(scan.ranges):
