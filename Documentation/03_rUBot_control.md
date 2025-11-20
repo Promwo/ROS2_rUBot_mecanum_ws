@@ -144,30 +144,45 @@ The same simple control program created in virtual environment to move the robot
     ```
 To properly control your real rUBot, we have a very usefull Lidar sensor to detect obstacles and avoid collisions.
 
-A first node is created to verify the Lidar readings. Open a new terminal and type:
-```shell
-ros2 launch my_robot_control my_robot_lidar_test.launch.xml
-```
-- Are the Lidar readings correct?
-- what do you think it could hapen?
+**Activity: Lidar test**
 
-A first activity is proposed to analyse and correct the Lidar readings.
+The LIDAR sensor we are using in our rUBot mecanum robot is a RPLIDAR A1 with the following specifications:
+- angle_min: -3.141593 (rad)
+- angle_max: 3.141593 (rad)
+- angle_increment: 0.008727 (rad)  -> 720 laser beams
 
-**Lab Activity: Lidar test**
+- Verify if the Lidar model you have specified in `rubot_mecanum.urdf` file has the same speciffications as the real one. Modify it if necessary.
+- Bringup the corrected rUBot mecanum model:
+    ```shell
+    ros2 launch my_robot_bringup my_robot_bringup_sw.launch.xml x0:=1.0 y0:=-0.5 yaw0:=0.0 robot:=rubot/rubot_mecanum.urdf custom_world:=square3m_walls.world
+    ````
+- A node is created to verify the Lidar readings:
+    ````shell
+    ros2 launch my_robot_control my_robot_lidar_test.launch.xml
+    ````
+    - Are the Lidar readings correct?
+    - what do you think it could hapen?
 
 The objectives of this activity are:
-- Put your robot inside a real world
-- Launch the rubot_lidar_test.launch.xml file and verify:
-  - the number of laser beams
-  - the angle for the first laser beam index
-  - the total laser beams angle range
-- Create a new **rubot_lidar_test_rUBot.launch** and **rubot_lidar_test_rUBot.py**, including:
-    - The minimum distance and angle
-    -The distances at 0º, 90º and -90º
+- Identify the Lidar specifications in the urdf file and correct it if necessary
+- Create a new `my_robot_lidar_test_rUBot.launch.xml` and `my_robot_lidar_test_rUBot.py` file to verify the proper Lidar readings
+- Launch the `my_robot_lidar_test_rUBot.launch.xml` file and show:
+    - The minimum distance and angle to a wall detected by the Lidar
+    - The distances at 0º, 90º and -90º with respect to the robot front
 
 Upload a pdf file with a picture including:
-- Gazebo and rviz screen where you can see the robot and the Lidar readings
-- terminal running the "rubot_lidar_test_rUBot.launch" with distances readings
+- Gazebo bringup where you can see the robot in a speciffic POSE in the world
+- terminal running the `my_robot_lidar_test_rUBot.launch.xml` with distances readings
+
+**Lab Session: rUBot control and Lidar test**
+
+The objectives of this lab session are:
+- Verify the proper Lidar readings in your rUBot mecanum robot in Gazebo simulation
+- Create a new `my_robot_control_lidar.launch.xml` and `my_robot_control_lidar.py` file to move the robot with a desired Twist message until a distance of 30cm in the movement direction to wall is detected
+- Launch the `my_robot_control_lidar.launch.xml` file and show:
+    - The robot moving until a the distance of 30cm to a wall is detected
+    - The distance and angle to a wall detected by the Lidar
+- Verify first in Gazebo virtual environment and later with the real robot
 
 ## **2. Driving self-control using Lidar sensor**
 
@@ -207,6 +222,12 @@ ros2 launch my_robot_control my_robot_selfcontrol.launch.xml time_to_stop:=10.0
 ```
 >Verify if you have used the number of laser beams of your Lidar included in your rUBot!
 
+**Lab Session: rUBot selfcontrol**
+
+The objectives of this lab session are:
+- Verify the designed self-control behaviour in your rUBot mecanum robot in Gazebo simulation
+- Validate the same behaviour with the real robot
+
 ## **3. Wall Follower**
 
 We have created a Wall_Follower strategy based on the reading distances from LIDAR in the ranges: front, front-right, right and back-right, and perform a specific actuation in function of the minimum distance readings.
@@ -228,7 +249,11 @@ ros2 launch my_robot_control my_robot_wallfollower.launch.xml time_to_stop:=50.0
 **Activity: rUBot wall-follower**
 
 The objective of this activity is to modify the code to move the robot in Holonomic way, for exemple:
--  When the minimum distance is in the right side move the robot over the left side
+-  When the minimum distance is in the front side move the robot over the left side
+- Whem the minimum distance is in the front-right side move the robot over the front-left side
+- When the minimum distance is in the right side move the robot forward and maintain its orientation parallel to the wall
+- When the minimum distance is in the back-right side move the robot over the front-right side
+- When the minimum distance is in the back side move the robot over the right side
 
 Design the code using the Holonomic robot performances, and upload:
 - the file "my_robot_wallfollower_holonomic.py"
@@ -241,6 +266,12 @@ We have to launch the same "my_robot_selfcontrol.launch.xml" file designed for V
 ros2 launch my_robot_control my_robot_wallfollower.launch.xml time_to_stop:=50.0
 ```
 >The robot is not working as expected because the number of laser beams is not 720 as in simulation!
+
+**Lab Session: rUBot Wall Follower**
+
+The objectives of this lab session are:
+- Verify the designed wall-follower behaviour in your rUBot mecanum robot in Gazebo simulation
+- Validate the same behaviour with the real robot
 
 ## **4. Go to POSE**
 
