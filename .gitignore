@@ -62,4 +62,3 @@ log/
 *.bag
 *.db3
 rosbag2_*/
-
