@@ -56,3 +56,9 @@ CATKIN_IGNORE
 .vscode/build/
 install/
 log/
+
+
+# ROS2 rosbags
+*.bag
+*.db3
+rosbag2_*/
