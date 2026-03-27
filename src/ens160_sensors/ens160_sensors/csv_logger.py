@@ -18,7 +18,7 @@ class CSVLogger(Node):
         os.makedirs(self.log_dir, exist_ok=True)
 
         # --- CSV logging ---
-        self.logging_enabled = False
+        self.logging_enabled = True
         self.csv_path = None  # will be set when logging starts
 
         # --- Latest sensor & odom ---

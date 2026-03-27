@@ -45,7 +45,7 @@ def generate_launch_description():
     #Arguments per CSV log
     declare_csv_logger_arg = DeclareLaunchArgument(
     'csv_logger_enabled',
-    default_value='false',
+    default_value='true',
     description='Habilita o deshabilita el registre en CSV'
     )
     
